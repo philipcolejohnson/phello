@@ -1,0 +1,42 @@
+// Place all the styles related to the lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#board-show {
+
+  .list-item {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #5e96b3;
+    margin: auto 10px 20px 0;
+    padding-right: 5px;
+  }
+
+  .list-item:hover {
+    background-color: #4d97c1;
+  }
+
+  #new-list-item {
+    background-color: #bbb;
+    text-align: center;
+    line-height: 100px;
+  }
+
+  #new-list-item:hover {
+    background-color: #aaa;
+  }
+
+  .x {
+    margin-top: 5px;
+  }
+
+  #new-list-form {
+    font-size: 1em;
+    background-color: white;
+    color: #555;
+
+    .text-center {
+      text-align: center;
+    }
+  }
+
+}

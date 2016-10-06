@@ -1,3 +1,38 @@
-<h1 editable-text="board.name" e-label="Board Name">{{ board.name }}</h1>
+<div class="col-sm-12" id="board-show">
 
-{{ board }}
+  <div class="row">
+    <h1 editable-text="board.name">{{ board.name || 'empty' }}</h1>
+  </div>
+
+  <div class="row">
+    <div ng-repeat="list in lists" class="list-item col-sm-3">
+      <h3 editable-text="list.title">{{ list.title || 'empty' }}</h3>
+      <p editable-text="list.description">{{ list.description || 'empty' }}</p>
+      <hr>
+    </div>
+
+    <!-- new list button -->
+    <div class="list-item col-sm-3" id="new-list-item" ng-hide="creatingList" ng-click="creatingList = true">
+      Create new list...
+    </div>
+    <div class="list-item col-sm-3" id="new-list-form" ng-show="creatingList">
+      <button class="pull-right btn-xs btn btn-danger x" ng-click="creatingList = false">X</button>
+      <div class="text-center"><h5>Create List</h5></div>
+      <hr>
+      <form>
+        <div class='input-group'>
+          <label>Title</label><br>
+          <input type="text" name="listname" class="form-control" ng-model="newList.title">
+        </div>
+        <div class='input-group'>
+          <label>Description</label><br>
+          <textarea name="listname" class="form-control" ng-model="newList.description"></textarea>
+        </div>
+        <div class='input-group'>
+          <input type="submit" class="btn btn-success" value="Create" ng-click="createList()">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

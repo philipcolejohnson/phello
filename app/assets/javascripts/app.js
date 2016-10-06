@@ -4,20 +4,9 @@ phello.factory('_', ['$window', function($window){
   return $window._;
 }]);
 
-// CSRF support
-// phello.config(
-//   ["$httpProvider",
-//   function($httpProvider) {
-//     var token = $('meta[name=csrf-token]')
-//       .attr('content');
-//     $httpProvider
-//       .defaults
-//       .headers
-//       .common['X-CSRF-Token'] = token;
-// }]);
-
-phello.run(function(editableOptions) {
-  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+phello.run(function(editableOptions, editableThemes) {
+  // editableThemes.bs3.buttonsClass = 'btn-danger';
+  editableOptions.theme = 'bs3';
 });
 
 phello.config(['RestangularProvider', function(RestangularProvider) {
@@ -53,6 +42,9 @@ phello.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
       resolve: {
         board: function($stateParams, boardService) {
           return boardService.find($stateParams.id);
+        },
+        lists: function(board, listService) {
+          return listService.all(board);
         }
       }
     });

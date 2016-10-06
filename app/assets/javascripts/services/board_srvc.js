@@ -39,11 +39,9 @@ phello.service('boardService', ['Restangular', '_', function(Restangular, _) {
   bS.find = function(id) {
     id = parseInt(id);
 
-    var board = _.find(_boards, function(el) {
+    return _.find(_boards, function(el) {
       return el.id === id;
     });
-    console.log(board)
-    return board;
   };
 
   return bS;

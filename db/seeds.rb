@@ -10,8 +10,10 @@ puts "Sowing the seeds..."
 
 USERS = 3
 
+puts "Destroying previous seeds"
 User.destroy_all
 Board.destroy_all
+List.destroy_all
 
 
 print "Building users"
@@ -30,7 +32,18 @@ USERS.times do |count|
   end
 
   print "."
-end 
+end
+
+puts
+print "Building lists"
+
+Board.all.each do |board|
+  3.times do
+    board.lists.create(title: Faker::Beer.name, description: Faker::Beer.style)
+  end
+  print "."
+end
+
 
 puts
 puts "Seeding complete!"

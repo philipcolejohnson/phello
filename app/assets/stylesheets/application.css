@@ -21,3 +21,7 @@ body {
 .white-text {
   color: #eee;
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #4d97c1 !important;
+}
