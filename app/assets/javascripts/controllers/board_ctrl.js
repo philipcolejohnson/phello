@@ -1,13 +1,23 @@
-phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', function($scope, boardService, boards) {
+phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', '$state', function($scope, boardService, boards, $state) {
 
   $scope.boards = boards;
-  $scope.newBoardName = "";
+  $scope.newBoard = {
+    name: ""
+  };
   $scope.creatingBoard = false;
 
   $scope.createBoard = function() {
     boardService.create($scope.newBoardName);
-    $scope.newBoardName = "";
+    $scope.newBoard.name = "";
     $scope.creatingBoard = false;
+  };
+
+  $scope.deleteBoard = function(board) {
+    boardService.delete(board);
+  };
+
+  $scope.goTo = function(board) {
+    $state.go('boards.show', { id: board.id });
   };
 
 }]);

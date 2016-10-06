@@ -1,4 +1,4 @@
-phello.service('boardService', ['Restangular', function(Restangular) {
+phello.service('boardService', ['Restangular', '_', function(Restangular, _) {
 
   var bS = {};
   var _boards = [];
@@ -25,9 +25,25 @@ phello.service('boardService', ['Restangular', function(Restangular) {
       board: {
         name: name
       }
-    }).then(function() {
-      bS.all();
+    }).then(function(response) {
+      _boards.push(response);
     });
+  };
+
+  bS.delete = function(board) {
+    board.remove().then(function() {
+      _boards = _.pull(_boards, board);
+    });
+  };
+
+  bS.find = function(id) {
+    id = parseInt(id);
+
+    var board = _.find(_boards, function(el) {
+      return el.id === id;
+    });
+    console.log(board)
+    return board;
   };
 
   return bS;

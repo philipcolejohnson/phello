@@ -3,9 +3,10 @@
   height: 100px;
   border-radius: 5px;
   background-color: #5e96b3;
-  margin: auto 5px 20px 5px;
+  margin: auto 10px 20px 0;
   font-weight: 700;
   font-size: 1.5em;
+  padding-right: 5px;
 }
 
 .board-item:hover {

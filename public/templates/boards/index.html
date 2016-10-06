@@ -1,13 +1,13 @@
 <div class="col-sm-12">
 
   <div class="row">
-    <h1>Boards</h1>
+    <h1>My Boards</h1>
   </div>
 
   <div class="row">
     <div ng-repeat="board in boards" class="board-item col-sm-2">
-      {{ board.name }}
-      <button class="pull-right btn-xs btn btn-danger x">X</button>
+      <a ui-sref="boards.show({id: board.id})" style="color: white;">{{ board.name }}</a>
+      <button class="pull-right btn-xs btn btn-danger x" ng-click="deleteBoard(board)">X</button>
     </div>
 
     <!-- new board button -->
@@ -19,10 +19,13 @@
       <div class="text-center"><h5>Create Board</h5></div>
       <hr>
       <form>
-        <label>Title</label>
-        <input type="text" name="boardname" ng-model="newBoardName">
-        <br>
-        <input type="submit" class="btn btn-success" value="Create" ng-click="createBoard()">
+        <div class='input-group'>
+          <label>Title</label><br>
+          <input type="text" name="boardname" ng-model="newBoardName">
+        </div>
+        <div class='input-group'>
+          <input type="submit" class="btn btn-success" value="Create" ng-click="createBoard()">
+        </div>
       </form>
     </div>
   </div>
