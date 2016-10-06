@@ -11,11 +11,11 @@
     </div>
 
     <!-- new board button -->
-    <div class="board-item col-sm-2" id="new-board-item">
+    <div class="board-item col-sm-2" id="new-board-item" ng-hide="creatingBoard" ng-click="creatingBoard = true">
       Create new board...
     </div>
-    <div class="board-item col-sm-2" id="new-board-form">
-      <button class="pull-right btn-xs btn btn-danger x">X</button>
+    <div class="board-item col-sm-2" id="new-board-form" ng-show="creatingBoard">
+      <button class="pull-right btn-xs btn btn-danger x" ng-click="creatingBoard = false">X</button>
       <div class="text-center"><h5>Create Board</h5></div>
       <hr>
       <form>

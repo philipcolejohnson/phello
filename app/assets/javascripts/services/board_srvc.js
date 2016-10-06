@@ -8,6 +8,7 @@ phello.service('boardService', ['Restangular', function(Restangular) {
   };
 
   bS.all = function() {
+    console.log("Getting boards...");
     return Restangular.all('boards').getList().then(function(response) {
       console.log("Got all boards");
       angular.copy(response, _boards);
@@ -18,7 +19,7 @@ phello.service('boardService', ['Restangular', function(Restangular) {
     });
   };
 
-  bs.create = function(name) {
+  bS.create = function(name) {
     console.log("Creating board...");
     Restangular.all('boards').post({
       board: {

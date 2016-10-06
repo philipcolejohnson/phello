@@ -2,10 +2,12 @@ phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', function($sc
 
   $scope.boards = boards;
   $scope.newBoardName = "";
+  $scope.creatingBoard = false;
 
   $scope.createBoard = function() {
     boardService.create($scope.newBoardName);
     $scope.newBoardName = "";
+    $scope.creatingBoard = false;
   };
 
 }]);
