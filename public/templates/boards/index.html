@@ -1,0 +1,30 @@
+<div class="col-sm-12">
+
+  <div class="row">
+    <h1>Boards</h1>
+  </div>
+
+  <div class="row">
+    <div ng-repeat="board in boards" class="board-item col-sm-2">
+      {{ board.name }}
+      <button class="pull-right btn-xs btn btn-danger x">X</button>
+    </div>
+
+    <!-- new board button -->
+    <div class="board-item col-sm-2" id="new-board-item">
+      Create new board...
+    </div>
+    <div class="board-item col-sm-2" id="new-board-form">
+      <button class="pull-right btn-xs btn btn-danger x">X</button>
+      <div class="text-center"><h5>Create Board</h5></div>
+      <hr>
+      <form>
+        <label>Title</label>
+        <input type="text" name="boardname" ng-model="newBoardName">
+        <br>
+        <input type="submit" class="btn btn-success" value="Create" ng-click="createBoard()">
+      </form>
+    </div>
+  </div>
+
+</div>
