@@ -1,6 +1,19 @@
 // Place all the styles related to the cards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .card {
   color: black;
+
+  .panel-body:hover {
+    background-color: #eee;
+  }
+}
+
+.modal {
+  color: #333;
+
+  .modal-content {
+    background-color: #eee;
+  }
 }

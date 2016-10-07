@@ -1,4 +1,4 @@
-var phello = angular.module('phello', ['ui.router', 'restangular', 'Devise', 'xeditable']);
+var phello = angular.module('phello', ['ui.router', 'restangular', 'Devise', 'xeditable', 'angularModalService']);
 
 phello.factory('_', ['$window', function($window){
   return $window._;
@@ -42,6 +42,9 @@ phello.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
       resolve: {
         board: function($stateParams, boardService) {
           return boardService.find($stateParams.id);
+        },
+        boards: function(boardService) {
+          return boardService.all();
         },
         lists: function(board, listService) {
           return listService.all(board);

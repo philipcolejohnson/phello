@@ -2,6 +2,11 @@
 
   <div class="row">
     <h1 editable-text="board.name">{{ board.name || 'empty' }}</h1>
+    <div class="pull-right">
+      <select class="form-control" ng-change="go()" ng-model="nav">
+        <option ng-repeat="board in boards" value="{{ board.id }}">{{ board.name }}</option>
+      </select>
+    </div>
   </div>
 
   <div class="row">
@@ -25,9 +30,8 @@
           <label>Description</label><br>
           <textarea name="listname" class="form-control" ng-model="newList.description"></textarea>
         </div>
-        <div class='input-group'>
-          <input type="submit" class="btn btn-success" value="Create" ng-click="createList()">
-        </div>
+        
+        <input type="submit" class="btn btn-success" value="Create" ng-click="createList()">
       </form>
     </div>
   </div>

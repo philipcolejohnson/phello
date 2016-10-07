@@ -1,4 +1,4 @@
-phello.directive('list', [function() {
+phello.directive('list', ['cardService', function(cardService) {
 
   return {
     restrict: "E",
@@ -14,10 +14,12 @@ phello.directive('list', [function() {
       }
 
       scope.newCard = new Card();
+      scope.creatingCard = false;
 
       scope.addCard = function() {
-        // save the card
-        
+        cardService.create(scope.newCard, scope.list);
+
+        scope.creatingCard = false;
         scope.newCard = new Card();
       };
     }

@@ -2,6 +2,15 @@
 <p editable-text="list.description">{{ list.description || 'empty' }}</p>
 <hr>
 
-<card ng-repeat="card in list.cards" card="card"></card>
+<card ng-repeat="card in list.cards" card="card" list="list"></card>
 
-<div class="new-card-btn">Add new card...</div>
+<div class="new-card-btn" ng-hide="creatingCard" ng-click="creatingCard = true">Add new card...</div>
+<div class="panel panel-default card" ng-show="creatingCard" ng-blur="creatingCard = false">
+  <div class="panel-body">
+    <form>
+      <input type="text" ng-model="newCard.title" class="form-control"><br>
+      <input type="submit" value="Add" class="btn btn-success" ng-click="addCard()">
+      <input type="submit" value="X" class="btn btn-danger" ng-click="creatingCard = false">
+    </form>
+  </div>
+</div>

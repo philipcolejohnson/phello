@@ -7,7 +7,6 @@
   <div class="row">
     <div ng-repeat="board in boards" class="board-item col-sm-2">
       <a ui-sref="boards.show({id: board.id})" style="color: white;">{{ board.name }}</a>
-      <button class="pull-right btn-xs btn btn-danger x" ng-click="deleteBoard(board)">X</button>
     </div>
 
     <!-- new board button -->
@@ -21,7 +20,7 @@
       <form>
         <div class='input-group'>
           <label>Title</label><br>
-          <input type="text" name="boardname" ng-model="newBoardName">
+          <input type="text" name="boardname" class="form-control" ng-model="newBoardName">
         </div>
         <div class='input-group'>
           <input type="submit" class="btn btn-success" value="Create" ng-click="createBoard()">

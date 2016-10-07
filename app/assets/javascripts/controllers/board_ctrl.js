@@ -1,4 +1,4 @@
-phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', '$state', function($scope, boardService, boards, $state) {
+phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', function($scope, boardService, boards) {
 
   $scope.boards = boards;
   $scope.newBoard = {
@@ -17,7 +17,7 @@ phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', '$state', fu
   };
 
   $scope.goTo = function(board) {
-    $state.go('boards.show', { id: board.id });
+    boardService.goTo(board);
   };
 
 }]);

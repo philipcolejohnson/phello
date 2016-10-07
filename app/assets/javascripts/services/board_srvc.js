@@ -1,4 +1,4 @@
-phello.service('boardService', ['Restangular', '_', function(Restangular, _) {
+phello.service('boardService', ['Restangular', '_', '$state', function(Restangular, _, $state) {
 
   var bS = {};
   var _boards = [];
@@ -42,6 +42,10 @@ phello.service('boardService', ['Restangular', '_', function(Restangular, _) {
     return _.find(_boards, function(el) {
       return el.id === id;
     });
+  };
+
+  bS.goTo = function(boardId) {
+    $state.go('boards.show', { id: boardId });
   };
 
   return bS;

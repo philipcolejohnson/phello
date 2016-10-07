@@ -1,0 +1,16 @@
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" editable-text="card.title">{{ card.title || 'empty' }}</h4>
+        <p>In list <em>{{ list.title }}</em></p>
+        <input type="checkbox" ng-model="card.completed"> Completed
+      </div>
+      <div class="modal-body">
+        <p><strong>Description</strong></p>
+        <p editable-text="card.description">{{ card.description || 'empty' }}</p>
+      </div>
+    </div>
+  </div>
+</div>
