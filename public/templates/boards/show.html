@@ -5,11 +5,8 @@
   </div>
 
   <div class="row">
-    <div ng-repeat="list in lists" class="list-item col-sm-3">
-      <h3 editable-text="list.title">{{ list.title || 'empty' }}</h3>
-      <p editable-text="list.description">{{ list.description || 'empty' }}</p>
-      <hr>
-    </div>
+  
+    <list ng-repeat="list in lists" class="list-item col-sm-3" list="list"></list>
 
     <!-- new list button -->
     <div class="list-item col-sm-3" id="new-list-item" ng-hide="creatingList" ng-click="creatingList = true">

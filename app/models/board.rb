@@ -1,4 +1,4 @@
 class Board < ApplicationRecord
   has_one :user
-  has_many :lists
+  has_many :lists, dependent: :destroy
 end

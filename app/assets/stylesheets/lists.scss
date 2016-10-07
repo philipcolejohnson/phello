@@ -8,7 +8,7 @@
     border-radius: 5px;
     background-color: #5e96b3;
     margin: auto 10px 20px 0;
-    padding-right: 5px;
+    // padding-right: 5px;
   }
 
   .list-item:hover {
@@ -36,6 +36,17 @@
 
     .text-center {
       text-align: center;
+    }
+  }
+
+  .new-card-btn {
+    padding: 10px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+
+    &:hover {
+      border: 1px solid #fff;
+      margin-bottom: 8px;
     }
   }
 

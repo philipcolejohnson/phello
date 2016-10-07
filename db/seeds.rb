@@ -14,6 +14,7 @@ puts "Destroying previous seeds"
 User.destroy_all
 Board.destroy_all
 List.destroy_all
+Card.destroy_all
 
 
 print "Building users"
@@ -36,10 +37,19 @@ end
 
 puts
 print "Building lists"
-
 Board.all.each do |board|
   3.times do
     board.lists.create(title: Faker::Beer.name, description: Faker::Beer.style)
+  end
+  print "."
+end
+
+
+puts
+print "Building cards"
+List.all.each do |list|
+  3.times do
+    list.cards.create(title: Faker::Hacker.say_something_smart, description: Faker::ChuckNorris.fact, completed: Faker::Boolean.boolean)
   end
   print "."
 end

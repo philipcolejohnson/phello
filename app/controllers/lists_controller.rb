@@ -5,7 +5,7 @@ class ListsController < ApplicationController
     @lists = current_user.boards.find(params[:board_id]).lists
 
     respond_to do |format|
-      format.json { render json: @lists, status: 200 }
+      format.json { render json: @lists.to_json(include: [:cards]), status: 200 }
     end
   end
 
@@ -13,6 +13,16 @@ class ListsController < ApplicationController
     @list = current_user.boards.find(params[:list][:board_id]).lists.build(list_params)
 
     if @list.save
+      respond_to do |format|
+        format.json { render json: @list, status: 201 }
+      end
+    end
+  end
+
+  def update
+    @list = List.find(params[:list_id])
+
+    if @list.update(list_params)
       respond_to do |format|
         format.json { render json: @list, status: 201 }
       end

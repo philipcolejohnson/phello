@@ -21,4 +21,5 @@ phello.controller('BoardShowCtrl', ['$scope', 'listService', 'board', 'lists', f
     $scope.creatingList = false;
   };
 
+
 }]);
