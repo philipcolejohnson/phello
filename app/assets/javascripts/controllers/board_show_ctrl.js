@@ -23,6 +23,15 @@ phello.controller('BoardShowCtrl', ['$scope', 'listService', 'boardService', 'bo
     $scope.creatingList = false;
   };
 
+  $scope.updateBoard = function(attr, $data) {
+    var old = $scope.board[attr];
+    $scope.board[attr] = $data;
+    return boardService.update($scope.board).then(function(){}, function() {
+      // on failure, reset the value
+      $scope.board[attr] = old;
+    });
+  };
+
   $scope.go = function() {
     boardService.goTo( Number($scope.nav) );
   };

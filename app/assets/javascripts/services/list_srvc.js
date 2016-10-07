@@ -24,6 +24,7 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
         board_id: board.id
       }
     }).then(function(response) {
+      response.cards = [];
       _lists.push(response);
     });
   };
@@ -40,6 +41,10 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
     return _.find(_lists, function(el) {
       return el.id === id;
     });
+  };
+
+  lS.update = function(list) {
+    return list.patch({ list: list });
   };
 
   return lS;

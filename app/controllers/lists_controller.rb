@@ -20,7 +20,7 @@ class ListsController < ApplicationController
   end
 
   def update
-    @list = List.find(params[:list_id])
+    @list = List.find(params[:list][:id])
 
     if @list.update(list_params)
       respond_to do |format|

@@ -1,7 +1,7 @@
 <div class="col-sm-12" id="board-show">
 
   <div class="row">
-    <h1 editable-text="board.name">{{ board.name || 'empty' }}</h1>
+    <h1 editable-text="board.name" onbeforesave="updateBoard('name', $data)">{{ board.name || 'empty' }}</h1>
     <div class="pull-right">
       <select class="form-control" ng-change="go()" ng-model="nav">
         <option ng-repeat="board in boards" value="{{ board.id }}">{{ board.name }}</option>

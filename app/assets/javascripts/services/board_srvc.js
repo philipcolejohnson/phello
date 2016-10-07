@@ -44,6 +44,10 @@ phello.service('boardService', ['Restangular', '_', '$state', function(Restangul
     });
   };
 
+  bS.update = function(board) {
+    return board.patch({ board: board });
+  };
+
   bS.goTo = function(boardId) {
     $state.go('boards.show', { id: boardId });
   };

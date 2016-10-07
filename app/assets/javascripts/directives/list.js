@@ -1,4 +1,4 @@
-phello.directive('list', ['cardService', function(cardService) {
+phello.directive('list', ['cardService', 'listService', function(cardService, listService) {
 
   return {
     restrict: "E",
@@ -21,6 +21,15 @@ phello.directive('list', ['cardService', function(cardService) {
 
         scope.creatingCard = false;
         scope.newCard = new Card();
+      };
+
+      scope.updateList = function(attr, $data) {
+        var old = scope.list[attr];
+        scope.list[attr] = $data;
+        return listService.update(scope.list).then(function(){}, function() {
+          // on failure, reset the value
+          scope.list[attr] = old;
+        });
       };
     }
   };

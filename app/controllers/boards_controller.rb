@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
   end
 
   def update
-    @board = Board.find(params[:board_id])
+    @board = Board.find(params[:board][:id])
 
     if @board.update(board_params)
       respond_to do |format|

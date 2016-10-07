@@ -1,5 +1,5 @@
-<h3 editable-text="list.title">{{ list.title || 'empty' }}</h3>
-<p editable-text="list.description">{{ list.description || 'empty' }}</p>
+<h3 editable-text="list.title" onbeforesave="updateList('title', $data)">{{ list.title || 'empty' }}</h3>
+<p editable-text="list.description" onbeforesave="updateList('description', $data)">{{ list.description || 'empty' }}</p>
 <hr>
 
 <card ng-repeat="card in list.cards" card="card" list="list"></card>
