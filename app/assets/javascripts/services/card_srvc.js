@@ -1,4 +1,4 @@
-phello.service('cardService', ['Restangular', '_', 'ModalService', function(Restangular, _, ModalService) {
+phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService', function(Restangular, _, ModalService, userService) {
 
   var cS = {};
 
@@ -8,7 +8,8 @@ phello.service('cardService', ['Restangular', '_', 'ModalService', function(Rest
       controller: "CardModalCtrl",
       inputs: {
         card: card,
-        list: list
+        list: list,
+        users: userService.getUsers()
       }
     }).then(function(modal) {
 
@@ -48,6 +49,29 @@ phello.service('cardService', ['Restangular', '_', 'ModalService', function(Rest
 
   cS.update = function(card) {
     return Restangular.one('cards', card.id).patch({ card: card });
+  };
+
+  cS.addMember = function (card, member_id) {
+    var newAssignment = {
+      assignment: {
+        card_id: card.id,
+        user_id: member_id
+      }
+    };
+    Restangular.all('assignments').post(newAssignment).then(function(user) {
+      card.workers.push(user);
+    });
+  };
+
+  cS.removeMember = function (card, member_id) {
+    var assignment = {
+      card_id: card.id,
+      user_id: member_id
+    };
+    Restangular.all('assignments').remove(assignment).then(function(response) {
+      var user = _.find(card.workers, ['id', Number(member_id)] );
+      _.pull(card.workers, user);
+    });
   };
 
   return cS;

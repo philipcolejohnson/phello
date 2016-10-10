@@ -1,7 +1,9 @@
-phello.controller('CardModalCtrl', ['$scope', 'close', 'card', 'list', 'cardService', function($scope, close, card, list, cardService) {
+phello.controller('CardModalCtrl', ['$scope', 'close', 'card', 'list', 'cardService', 'users', function($scope, close, card, list, cardService, users) {
 
   $scope.card = card;
   $scope.list = list;
+  $scope.users = users;
+  $scope.memberForm = String($scope.users[0].id);
   
   $scope.close = function(result) {
     close(result, 500); // close, but give 500ms for bootstrap to animate
@@ -18,6 +20,14 @@ phello.controller('CardModalCtrl', ['$scope', 'close', 'card', 'list', 'cardServ
 
   $scope.deleteCard = function() {
     cardService.delete($scope.card, $scope.list).then( $scope.close(false) );
+  };
+
+  $scope.addMember = function() {
+    cardService.addMember($scope.card, $scope.memberForm);
+  };
+
+  $scope.removeMember = function(user) {
+    cardService.removeMember(card, user.id);
   };
 
 }]);

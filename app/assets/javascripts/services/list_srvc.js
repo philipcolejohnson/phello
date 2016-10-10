@@ -7,7 +7,6 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
     console.log("Getting lists...");
     return Restangular.all('lists').getList({ board_id: board.id }).then(function(response) {
       console.log("Got all lists");
-      console.log(response)
       angular.copy(response, _lists);
       return _lists;
     },

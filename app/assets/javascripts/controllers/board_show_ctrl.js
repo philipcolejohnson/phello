@@ -1,8 +1,9 @@
-phello.controller('BoardShowCtrl', ['$scope', 'listService', 'boardService', 'board', 'boards', 'lists', function($scope, listService, boardService, board, boards, lists) {
+phello.controller('BoardShowCtrl', ['$scope', 'listService', 'boardService', 'board', 'boards', 'lists', 'users', function($scope, listService, boardService, board, boards, lists, users) {
 
   $scope.board = board;
   $scope.boards = boards;
   $scope.lists = lists;
+  $scope.users = users;
   $scope.nav = String(board.id);
   $scope.newList = {
     title: "",

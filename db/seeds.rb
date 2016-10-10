@@ -57,9 +57,9 @@ end
 puts
 print "Building cards"
 List.all.each do |list|
-  3.times do |count|
+  3.times do
     card = list.cards.create(title: Faker::Hacker.say_something_smart, description: Faker::ChuckNorris.fact, completed: Faker::Boolean.boolean)
-    User.all.sample.tasks << card if count.even?
+    User.all.sample.tasks << card if rand(2) == 1
   end
   print "."
 end

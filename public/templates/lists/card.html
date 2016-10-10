@@ -1,5 +1,6 @@
 <div class="panel panel-default card">
   <div class="panel-body" ng-click="showCard()">
     <p>{{ card.title }}</p>
+<img ng-repeat="worker in card.workers" ng-src="{{worker.image_path}}" alt="{{worker.email}}" class="card-user img-rounded">
   </div>
 </div>
