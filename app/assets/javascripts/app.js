@@ -48,6 +48,9 @@ phello.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
         },
         lists: function(board, listService) {
           return listService.all(board);
+        },
+        users: function() {
+          
         }
       }
     });

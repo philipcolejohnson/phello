@@ -10,6 +10,7 @@
       <div class="modal-body">
         <p><strong>Description</strong></p>
         <p editable-text="card.description" onbeforesave="updateCard('description', $data)">{{ card.description || 'empty' }}</p>
+        <button class="btn btn-default" ng-click="deleteCard()">Delete Card</button>
       </div>
     </div>
   </div>

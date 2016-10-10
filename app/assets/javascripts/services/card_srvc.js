@@ -32,8 +32,8 @@ phello.service('cardService', ['Restangular', '_', 'ModalService', function(Rest
     });
   };
 
-  cS.delete = function(card) {
-    card.remove().then(function() {
+  cS.delete = function(card, list) {
+    return Restangular.one('cards', card.id).remove().then(function() {
       list.cards = _.pull(list.cards, card);
     });
   };

@@ -30,7 +30,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    @card = List.find(params[:list_id]).cards.find(params[:id])
+    @card = Card.find(params[:id])
 
     if @card.destroy
       respond_to do |format|

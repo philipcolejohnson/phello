@@ -31,6 +31,10 @@ phello.directive('list', ['cardService', 'listService', function(cardService, li
           scope.list[attr] = old;
         });
       };
+
+      scope.deleteList = function() {
+        listService.delete(scope.list);
+      };
     }
   };
 

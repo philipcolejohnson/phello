@@ -6,6 +6,7 @@
       <select class="form-control" ng-change="go()" ng-model="nav">
         <option ng-repeat="board in boards" value="{{ board.id }}">{{ board.name }}</option>
       </select>
+      <button class="btn btn-danger" ng-click="deleteBoard()">Delete Board</button>
     </div>
   </div>
 

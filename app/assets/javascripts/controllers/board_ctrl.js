@@ -12,10 +12,6 @@ phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', function($sc
     $scope.creatingBoard = false;
   };
 
-  $scope.deleteBoard = function(board) {
-    boardService.delete(board);
-  };
-
   $scope.goTo = function(board) {
     boardService.goTo(board);
   };

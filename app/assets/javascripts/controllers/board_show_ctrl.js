@@ -10,8 +10,8 @@ phello.controller('BoardShowCtrl', ['$scope', 'listService', 'boardService', 'bo
   };
   $scope.creatingList = false;
 
-  $scope.deleteList = function() {
-    listService.delete($scope.board);
+  $scope.deleteBoard = function() {
+    boardService.delete($scope.board);
   };
 
   $scope.createList = function() {

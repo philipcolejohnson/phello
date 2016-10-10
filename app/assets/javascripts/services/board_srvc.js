@@ -33,6 +33,7 @@ phello.service('boardService', ['Restangular', '_', '$state', function(Restangul
   bS.delete = function(board) {
     board.remove().then(function() {
       _boards = _.pull(_boards, board);
+      $state.go('dashboard');
     });
   };
 

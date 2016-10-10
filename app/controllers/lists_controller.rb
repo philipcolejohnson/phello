@@ -5,7 +5,14 @@ class ListsController < ApplicationController
     @lists = current_user.boards.find(params[:board_id]).lists
 
     respond_to do |format|
-      format.json { render json: @lists.to_json(include: [:cards]), status: 200 }
+      format.json { render json: @lists.to_json(include: 
+                                                  { cards: 
+                                                    {
+                                                      include: :workers 
+                                                    }
+                                                  }
+                                                ),
+       status: 200 }
     end
   end
 
@@ -30,7 +37,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = current_user.boards.find(params[:board_id]).lists.find(params[:id])
+    @list = List.find(params[:id])
 
     if @list.destroy
       respond_to do |format|

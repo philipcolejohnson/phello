@@ -16,4 +16,8 @@ phello.controller('CardModalCtrl', ['$scope', 'close', 'card', 'list', 'cardServ
     });
   };
 
+  $scope.deleteCard = function() {
+    cardService.delete($scope.card, $scope.list).then( $scope.close(false) );
+  };
+
 }]);

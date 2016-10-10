@@ -1,13 +1,11 @@
-phello.service('listService', ['Restangular', '_', function(Restangular, _) {
+phello.service('userService', ['Restangular', '_', function(Restangular, _) {
 
-  var lS = {};
-  var _lists = [];
+  var uS = {};
 
-  lS.all = function(board) {
+  uS.all = function(board) {
     console.log("Getting lists...");
     return Restangular.all('lists').getList({ board_id: board.id }).then(function(response) {
       console.log("Got all lists");
-      console.log(response)
       angular.copy(response, _lists);
       return _lists;
     },
@@ -16,7 +14,7 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
     });
   };
 
-  lS.create = function(newList, board) {
+  uS.create = function(newList, board) {
     console.log("Creating list...");
     Restangular.all('lists').post({
       list: {
@@ -30,13 +28,13 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
     });
   };
 
-  lS.delete = function(list) {
+  uS.delete = function(list) {
     list.remove().then(function() {
       _lists = _.pull(_lists, list);
     });
   };
 
-  lS.find = function(id) {
+  uS.find = function(id) {
     id = parseInt(id);
 
     return _.find(_lists, function(el) {
@@ -44,10 +42,10 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
     });
   };
 
-  lS.update = function(list) {
+  uS.update = function(list) {
     return list.patch({ list: list });
   };
 
-  return lS;
+  return uS;
 
 }]);
