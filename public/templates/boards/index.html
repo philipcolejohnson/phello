@@ -5,7 +5,7 @@
   </div>
 
   <div class="row">
-    <div ng-repeat="board in boards" class="board-item col-sm-2">
+    <div ng-repeat="board in boards" class="board-item col-sm-2" ng-click="goTo(board)">
       <a ui-sref="boards.show({id: board.id})" style="color: white;">{{ board.name }}</a>
     </div>
 

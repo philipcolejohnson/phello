@@ -1,6 +1,7 @@
-phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService', function(Restangular, _, ModalService, userService) {
+phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService', 'activityService', function(Restangular, _, ModalService, userService, activityService) {
 
   var cS = {};
+  var _currentUser = userService.currentUser();
 
   cS.show = function(card, list) {
     ModalService.showModal({
@@ -9,20 +10,19 @@ phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService'
       inputs: {
         card: card,
         list: list,
-        users: userService.getUsers()
+        users: userService.getUsers(),
+        current_user: _currentUser
       }
     }).then(function(modal) {
 
       modal.element.modal();
       modal.close.then(function(result) {
-        console.log(result);
       });
     });
   };
 
   cS.create = function(newcard, list) {
-    console.log("Creating card...");
-    Restangular.all('cards').post({
+    return Restangular.all('cards').post({
       card: {
         title: newcard.title,
         description: newcard.description,
@@ -30,6 +30,7 @@ phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService'
       }
     }).then(function(response) {
       list.cards.push(response);
+      activityService.create(response, _currentUser.email + " created the card.");
     });
   };
 
@@ -58,8 +59,9 @@ phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService'
         user_id: member_id
       }
     };
-    Restangular.all('assignments').post(newAssignment).then(function(user) {
+    return Restangular.all('assignments').post(newAssignment).then(function(user) {
       card.workers.push(user);
+      activityService.create(card, _currentUser.email + " added " + user.email + " to the card.");
     });
   };
 
@@ -68,9 +70,11 @@ phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService'
       card_id: card.id,
       user_id: member_id
     };
-    Restangular.all('assignments').remove(assignment).then(function(response) {
+    return Restangular.all('assignments').remove(assignment).then(function(response) {
       var user = _.find(card.workers, ['id', Number(member_id)] );
       _.pull(card.workers, user);
+
+      activityService.create(card, _currentUser.email + " removed " + user.email + " from the card.");
     });
   };
 

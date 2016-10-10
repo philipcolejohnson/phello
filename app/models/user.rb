@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :boards
+  has_many :activities
 
   has_many :assignments
   has_many :tasks, through: :assignments, source: :card

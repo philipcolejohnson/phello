@@ -1,9 +1,15 @@
-phello.controller('CardModalCtrl', ['$scope', 'close', 'card', 'list', 'cardService', 'users', function($scope, close, card, list, cardService, users) {
+phello.controller('CardModalCtrl', ['$scope', 'Auth', 'close', 'card', 'list', 'cardService', 'users', 'current_user', 'activityService', function($scope, Auth, close, card, list, cardService, users, current_user, activityService) {
 
   $scope.card = card;
   $scope.list = list;
   $scope.users = users;
+  $scope.current_user = current_user;
   $scope.memberForm = String($scope.users[0].id);
+
+  activityService.all(card).then(function(response) {
+    $scope.activities = response;
+  });
+
   
   $scope.close = function(result) {
     close(result, 500); // close, but give 500ms for bootstrap to animate
@@ -12,7 +18,9 @@ phello.controller('CardModalCtrl', ['$scope', 'close', 'card', 'list', 'cardServ
   $scope.updateCard = function(attr, $data) {
     var old = $scope.card[attr];
     $scope.card[attr] = $data;
-    return cardService.update($scope.card).then(function(){}, function() {
+    return cardService.update($scope.card).then(function(){
+        activityService.create($scope.card, $scope.current_user.email + " updated the " + attr + " of this card to \"" + $data + "\".");
+      }, function() {
       // on failure, reset the value
       $scope.card[attr] = old;
     });

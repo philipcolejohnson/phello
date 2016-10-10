@@ -18,9 +18,18 @@
           <input type="submit" class="btn btn-success" value="Add Member" ng-click="addMember()">
         </form>
       </div>
+
       <div class="modal-body">
         <p><strong>Description</strong></p>
-        <p editable-text="card.description" onbeforesave="updateCard('description', $data)">{{ card.description || 'empty' }}</p>
+        <p editable-text="card.description" onbeforesave="updateCard('description', $data)">{{ card.description || 'Click to add a description.' }}</p>
+      </div>
+
+      <div class="modal-body">
+        <p><strong>Activities</strong></p>
+        <p ng-repeat="activity in activities | orderBy: '-created_at'">{{ activity.text }} <span class="gray-text">{{ activity.created_at | date: 'short' }}</span><p>
+      </div>
+
+      <div class="modal-body">
         <button class="btn btn-default" ng-click="deleteCard()">Delete Card</button>
       </div>
     </div>

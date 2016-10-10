@@ -1,18 +1,18 @@
 <div class="col-sm-12" id="board-show">
 
-  <div class="row">
+  <div class="col-sm-10">
     <h1 editable-text="board.name" onbeforesave="updateBoard('name', $data)">{{ board.name || 'empty' }}</h1>
-    <div class="pull-right">
-      <select class="form-control" ng-change="go()" ng-model="nav">
-        <option ng-repeat="board in boards" value="{{ board.id }}">{{ board.name }}</option>
-      </select>
-      <button class="btn btn-danger" ng-click="deleteBoard()">Delete Board</button>
-    </div>
+  </div>
+  <div class="col-sm-2">
+    <select class="form-control" ng-change="go()" ng-model="nav">
+      <option ng-repeat="board in boards" value="{{ board.id }}">{{ board.name }}</option>
+    </select>
+    <button class="btn btn-danger" ng-click="deleteBoard()">Delete Board</button>
   </div>
 
   <div class="row">
   
-    <list ng-repeat="list in lists" class="list-item col-sm-3" list="list"></list>
+    <list ng-repeat="list in lists | orderBy: 'created_at'" class="list-item col-sm-3" list="list"></list>
 
     <!-- new list button -->
     <div class="list-item col-sm-3" id="new-list-item" ng-hide="creatingList" ng-click="creatingList = true">

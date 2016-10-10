@@ -13,7 +13,7 @@ phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', function($sc
   };
 
   $scope.goTo = function(board) {
-    boardService.goTo(board);
+    boardService.goTo(board.id);
   };
 
 }]);

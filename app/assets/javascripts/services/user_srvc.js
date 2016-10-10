@@ -1,12 +1,22 @@
-phello.service('userService', ['Restangular', '_', function(Restangular, _) {
+phello.service('userService', ['Restangular', '_', 'Auth', function(Restangular, _, Auth) {
 
   var uS = {};
   var _users = [];
+  var _currentUser;
+
+  Auth.currentUser()
+      .then(function(user) {
+        _currentUser = user;
+      }, function(response) {
+        console.error(response);
+      });
+
+  uS.currentUser = function() {
+    return _currentUser;
+  };
 
   uS.all = function(board) {
-    console.log("Getting users...");
     return Restangular.all('users').getList().then(function(response) {
-      console.log("Got all users");
       angular.copy(response, _users);
       return _users;
     },

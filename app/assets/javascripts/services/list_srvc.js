@@ -4,9 +4,9 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
   var _lists = [];
 
   lS.all = function(board) {
-    console.log("Getting lists...");
+    // console.log("Getting lists...");
     return Restangular.all('lists').getList({ board_id: board.id }).then(function(response) {
-      console.log("Got all lists");
+      // console.log("Got all lists");
       angular.copy(response, _lists);
       return _lists;
     },
@@ -16,7 +16,7 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
   };
 
   lS.create = function(newList, board) {
-    console.log("Creating list...");
+    // console.log("Creating list...");
     Restangular.all('lists').post({
       list: {
         title: newList.title,
