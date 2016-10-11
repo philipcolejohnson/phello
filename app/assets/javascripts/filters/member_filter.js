@@ -3,7 +3,7 @@ phello.filter('memberFilter', ['_', function(_)  {
     var filtered = [];
 
     collection.forEach(function(el) {
-      if (el.id)
+      if (el.id) {}
     });
 
     return filtered;

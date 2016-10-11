@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
 gem 'faker'
+gem 'figaro'
 
 gem 'devise'
 source "https://rails-assets.org" do
