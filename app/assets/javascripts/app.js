@@ -40,18 +40,18 @@ phello.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
       templateUrl: '/templates/boards/show.html',
       controller: 'BoardShowCtrl',
       resolve: {
-        board: function($stateParams, boardService) {
-          return boardService.find($stateParams.id);
-        },
-        boards: function(boardService) {
-          return boardService.all();
-        },
-        lists: function(board, listService) {
-          return listService.all(board);
-        },
-        users: function(userService) {
-          return userService.all();
-        }
+        board: ['$stateParams', 'boardService', function($stateParams, boardService) {
+                  return boardService.find($stateParams.id);
+                }],
+        boards: ['boardService', function(boardService) {
+                  return boardService.all();
+                }],
+        lists: ['board', 'listService', function(board, listService) {
+                  return listService.all(board);
+                }],
+        users: ['userService', function(userService) {
+                  return userService.all();
+                }]
       }
     });
     
