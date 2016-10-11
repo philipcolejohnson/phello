@@ -1,6 +1,6 @@
-<div class="col-sm-12" id="board-show">
-
-  <div class="col-sm-10 hello">
+<!-- <div class="col-sm-12" id="board-show"> -->
+<div class="row">
+  <div class="col-sm-10">
     <h1 editable-text="board.name" onbeforesave="updateBoard('name', $data)">{{ board.name || 'empty' }}</h1>
   </div>
   <div class="col-sm-2">
@@ -9,6 +9,7 @@
     </select>
     <button class="btn btn-danger" ng-click="deleteBoard()">Delete Board</button>
   </div>
+</div>
 
   <div class="row row-horizon">
   
@@ -37,4 +38,4 @@
     </div>
   </div>
 
-</div>
+<!-- </div> -->

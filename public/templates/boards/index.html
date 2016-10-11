@@ -1,10 +1,10 @@
-<div class="col-sm-12">
+<!-- <div class="col-sm-12"> -->
 
   <div class="row">
     <h1>My Boards</h1>
   </div>
 
-  <div class="row">
+  <div class="row row-horizon">
     <div ng-repeat="board in boards" class="board-item col-sm-2" ng-click="goTo(board)">
       <a ui-sref="boards.show({id: board.id})" style="color: white;">{{ board.name }}</a>
     </div>
@@ -29,4 +29,4 @@
     </div>
   </div>
 
-</div>
+<!-- </div> -->

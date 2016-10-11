@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 
-//=require lodash
+//= require lodash
 
 //= require angular
 //= require angular-ui-router.min
