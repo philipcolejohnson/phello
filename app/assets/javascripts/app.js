@@ -23,9 +23,9 @@ phello.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
       templateUrl: '/templates/boards/index.html',
       controller: 'BoardCtrl',
       resolve: {
-        boards: function(boardService) {
-            return boardService.all();
-        }
+        boards: ['boardService', function(boardService) {
+                    return boardService.all();
+                }]
       }
     })
 
