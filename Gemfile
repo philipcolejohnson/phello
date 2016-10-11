@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
+gem 'faker'
 
 gem 'devise'
 source "https://rails-assets.org" do
@@ -45,7 +46,6 @@ group :development, :test do
   gem 'hirb'
   gem 'binding_of_caller'
   gem 'rspec-rails'
-  gem 'faker'
 end
 
 group :development do

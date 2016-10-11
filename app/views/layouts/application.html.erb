@@ -21,12 +21,22 @@
   <body class="white-text"<%= content_for(:angular) %>>
     <%= render 'shared/nav' %>
 
-    <div class="container-fluid">
+    <div>
 
         <%= yield %>
 
+    <div class="row row-horizon">
+  <div class="col-xs-6">
+    <p>This content is very, very, very, very, very, very, very wide!</p>
+  </div>
+  <div class="col-xs-6">
+    <p>This content is very, very, very, very, very, very, very wide!</p>
+  </div>
+  <div class="col-xs-6">
+    <p>This content is very, very, very, very, very, very, very wide!</p>
+  </div>
+</div>
     </div>
-
   </body>
 
   <!-- Latest compiled and minified JavaScript -->
