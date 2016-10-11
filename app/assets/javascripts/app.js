@@ -4,10 +4,10 @@ phello.factory('_', ['$window', function($window){
   return $window._;
 }]);
 
-phello.run(function(editableOptions, editableThemes) {
+phello.run(['editableOptions', 'editableThemes', function(editableOptions, editableThemes) {
   // editableThemes.bs3.buttonsClass = 'btn-danger';
   editableOptions.theme = 'bs3';
-});
+}]);
 
 phello.config(['RestangularProvider', function(RestangularProvider) {
   RestangularProvider.setBaseUrl('/api/v1');
