@@ -27,7 +27,10 @@ phello.controller('CardModalCtrl', ['$scope', 'Auth', 'close', 'card', 'list', '
   };
 
   $scope.deleteCard = function() {
-    cardService.delete($scope.card, $scope.list).then( $scope.close(false) );
+    cardService.delete($scope.card, $scope.list).then( function() { 
+      $scope.close(false);
+      setTimeout(function() { angular.element(".modal-backdrop").remove(); }, 500);
+    } );
   };
 
   $scope.addMember = function() {

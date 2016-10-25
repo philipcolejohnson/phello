@@ -29,7 +29,7 @@ User.destroy_all
 print "Building users"
 # create default
 phil = User.create(email: 'phil@viking.com', password: 'password', image_path: IMAGES[0])
-3.times do
+6.times do
   phil.boards.create(user_id: phil.id, name: Faker::SlackEmoji.emoji)
 end
 print "."
@@ -37,7 +37,7 @@ print "."
 USERS.times do |count|
   user = User.create(email: Faker::Internet.email, password: 'password', image_path: IMAGES[count + 1])
 
-  3.times do
+  6.times do
     user.boards.create(user_id: user.id, name: Faker::SlackEmoji.emoji)
   end
 
