@@ -1,4 +1,8 @@
-phello.directive('card', ['cardService', function(cardService) {
+phello.directive('card', card);
+
+card.$inject = ['cardService'];
+
+function card(cardService) {
 
   return {
     restrict: "E",
@@ -14,4 +18,4 @@ phello.directive('card', ['cardService', function(cardService) {
     }
   };
 
-}]);
+}

@@ -1,4 +1,10 @@
-phello.controller('BoardShowCtrl', ['$scope', 'listService', 'boardService', 'board', 'boards', 'lists', 'users', function($scope, listService, boardService, board, boards, lists, users) {
+phello.controller('BoardShowCtrl', BoardShowCtrl);
+
+
+BoardShowCtrl.$inject = ['$scope', 'listService', 'boardService', 'board', 'boards', 'lists', 'users']; 
+
+
+function BoardShowCtrl($scope, listService, boardService, board, boards, lists, users) {
 
   $scope.board = board;
   $scope.boards = boards;
@@ -37,4 +43,4 @@ phello.controller('BoardShowCtrl', ['$scope', 'listService', 'boardService', 'bo
     boardService.goTo( Number($scope.nav) );
   };
 
-}]);
+}

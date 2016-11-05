@@ -1,4 +1,9 @@
-phello.controller('CardModalCtrl', ['$scope', 'Auth', 'close', 'card', 'list', 'cardService', 'users', 'current_user', 'activityService', function($scope, Auth, close, card, list, cardService, users, current_user, activityService) {
+phello.controller('CardModalCtrl', CardModalCtrl);
+
+CardModalCtrl.$inject = ['$scope', 'Auth', 'close', 'card', 'list', 'cardService', 'users', 'current_user', 'activityService']; 
+
+
+function CardModalCtrl($scope, Auth, close, card, list, cardService, users, current_user, activityService) {
 
   $scope.card = card;
   $scope.list = list;
@@ -41,4 +46,4 @@ phello.controller('CardModalCtrl', ['$scope', 'Auth', 'close', 'card', 'list', '
     cardService.removeMember(card, user.id);
   };
 
-}]);
+}

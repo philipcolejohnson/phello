@@ -1,4 +1,8 @@
-phello.service('activityService', ['Restangular', '_', 'userService', function(Restangular, _, userService) {
+phello.service('activityService', activityService);
+
+activityService.$inject = ['Restangular', '_', 'userService'];
+
+function activityService(Restangular, _, userService) {
 
   var aS = {};
   var currentUser = userService.currentUser();
@@ -33,4 +37,4 @@ phello.service('activityService', ['Restangular', '_', 'userService', function(R
 
   return aS;
 
-}]);
+}

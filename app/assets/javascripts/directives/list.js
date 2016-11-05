@@ -1,4 +1,8 @@
-phello.directive('list', ['cardService', 'listService', function(cardService, listService) {
+phello.directive('list', list);
+
+list.$inject = ['cardService', 'listService'];
+
+function list(cardService, listService) {
 
   return {
     restrict: "E",
@@ -38,4 +42,4 @@ phello.directive('list', ['cardService', 'listService', function(cardService, li
     }
   };
 
-}]);
+}

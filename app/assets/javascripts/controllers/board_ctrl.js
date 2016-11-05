@@ -1,4 +1,8 @@
-phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', function($scope, boardService, boards) {
+phello.controller('BoardCtrl', BoardCtrl);
+
+BoardCtrl.$inject = ['$scope', 'boardService', 'boards'];
+
+function BoardCtrl($scope, boardService, boards) {
 
   $scope.boards = boards;
   $scope.newBoard = {
@@ -16,4 +20,4 @@ phello.controller('BoardCtrl', ['$scope', 'boardService', 'boards', function($sc
     boardService.goTo(board.id);
   };
 
-}]);
+}

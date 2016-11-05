@@ -1,4 +1,10 @@
-phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService', 'activityService', function(Restangular, _, ModalService, userService, activityService) {
+phello.service('cardService', cardService);
+
+
+cardService.$inject = ['Restangular', '_', 'ModalService', 'userService', 'activityService'];
+
+
+function cardService(Restangular, _, ModalService, userService, activityService) {
 
   var cS = {};
   var _currentUser = userService.currentUser();
@@ -80,4 +86,4 @@ phello.service('cardService', ['Restangular', '_', 'ModalService', 'userService'
 
   return cS;
 
-}]);
+}

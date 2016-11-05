@@ -1,4 +1,8 @@
-phello.service('userService', ['Restangular', '_', 'Auth', function(Restangular, _, Auth) {
+phello.service('userService', userService);
+
+userService.$inject = ['Restangular', '_', 'Auth'];
+
+function userService(Restangular, _, Auth) {
 
   var uS = {};
   var _users = [];

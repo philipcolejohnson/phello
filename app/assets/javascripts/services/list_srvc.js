@@ -1,4 +1,9 @@
-phello.service('listService', ['Restangular', '_', function(Restangular, _) {
+phello.service('listService', listService);
+
+listService.$inject = ['Restangular', '_'];
+
+
+function listService(Restangular, _) {
 
   var lS = {};
   var _lists = [];
@@ -49,4 +54,4 @@ phello.service('listService', ['Restangular', '_', function(Restangular, _) {
 
   return lS;
 
-}]);
+}

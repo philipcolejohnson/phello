@@ -1,4 +1,8 @@
-phello.service('boardService', ['Restangular', '_', '$state', function(Restangular, _, $state) {
+phello.service('boardService', boardService);
+
+boardService.$inject = ['Restangular', '_', '$state'];
+
+function boardService(Restangular, _, $state) {
 
   var bS = {};
   var _boards = [];
@@ -55,4 +59,4 @@ phello.service('boardService', ['Restangular', '_', '$state', function(Restangul
 
   return bS;
 
-}]);
+}
