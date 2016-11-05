@@ -43,4 +43,4 @@ function userService(Restangular, _, Auth) {
 
   return uS;
 
-}]);
+}

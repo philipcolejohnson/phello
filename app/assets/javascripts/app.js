@@ -1,20 +1,26 @@
+"use strict";
+
 var phello = angular.module('phello', ['ui.router', 'restangular', 'Devise', 'xeditable', 'angularModalService']);
 
-phello.factory('_', ['$window', function($window){
+angular.module('phello').factory('_', ['$window', function($window) {
   return $window._;
 }]);
 
-phello.run(['editableOptions', 'editableThemes', function(editableOptions, editableThemes) {
+angular.module('phello').run(['editableOptions', 'editableThemes', function(editableOptions, editableThemes) {
   // editableThemes.bs3.buttonsClass = 'btn-danger';
   editableOptions.theme = 'bs3';
 }]);
 
-phello.config(['RestangularProvider', function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('/api/v1');
-  RestangularProvider.setRequestSuffix('.json');
-}]);
+angular.module('phello').config([
+  'RestangularProvider',
+  function(RestangularProvider) {
 
-phello.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    RestangularProvider.setBaseUrl('/api/v1');
+    RestangularProvider.setRequestSuffix('.json');
+  }
+]);
+
+angular.module('phello').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
