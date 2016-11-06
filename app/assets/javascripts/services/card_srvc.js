@@ -20,7 +20,6 @@ function cardService(Restangular, _, ModalService, userService, activityService)
         current_user: _currentUser
       }
     }).then(function(modal) {
-
       modal.element.modal();
       modal.close.then(function(result) {
       });

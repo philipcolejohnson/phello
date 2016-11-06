@@ -11,7 +11,6 @@ puts "Sowing the seeds..."
 USERS = 3
 IMAGES = [
   "http://static.giantbomb.com/uploads/square_small/0/8440/458329-buster_sheep.jpg",
-  "https://pbs.twimg.com/profile_images/664663430830264320/5ohQ1qbj_bigger.jpg",
   "http://67.media.tumblr.com/avatar_52472a30105c_128.png",
   "http://66.media.tumblr.com/avatar_131fd597e59c_128.png",
   "https://65.media.tumblr.com/avatar_56a6db45f1d9_128.png",
@@ -30,7 +29,7 @@ print "Building users"
 # create default
 phil = User.create(email: 'phil@viking.com', password: 'password', image_path: IMAGES[0])
 6.times do
-  phil.boards.create(user_id: phil.id, name: Faker::SlackEmoji.emoji)
+  phil.boards.create(user_id: phil.id, name: Faker::Hacker.adjective)
 end
 print "."
 
@@ -48,7 +47,7 @@ puts
 print "Building lists"
 Board.all.each do |board|
   3.times do
-    board.lists.create(title: Faker::Beer.name, description: Faker::Beer.style)
+    board.lists.create(title: Faker::Hacker.noun, description: Faker::Hipster.sentence)
   end
   print "."
 end
