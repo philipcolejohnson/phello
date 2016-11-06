@@ -1,9 +1,9 @@
 phello.controller('CardModalCtrl', CardModalCtrl);
 
-CardModalCtrl.$inject = ['$scope', 'Auth', 'close', 'card', 'list', 'cardService', 'users', 'current_user', 'activityService']; 
+CardModalCtrl.$inject = ['$scope', 'close', 'Auth', 'card', 'list', 'cardService', 'users', 'current_user', 'activityService']; 
 
 
-function CardModalCtrl($scope, Auth, close, card, list, cardService, users, current_user, activityService) {
+function CardModalCtrl($scope, close, Auth, card, list, cardService, users, current_user, activityService) {
 
   $scope.card = card;
   $scope.list = list;
