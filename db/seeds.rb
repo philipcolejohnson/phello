@@ -11,10 +11,11 @@ puts "Sowing the seeds..."
 USERS = 3
 IMAGES = [
   "http://static.giantbomb.com/uploads/square_small/0/8440/458329-buster_sheep.jpg",
-  "http://67.media.tumblr.com/avatar_52472a30105c_128.png",
+  "https://images-na.ssl-images-amazon.com/images/I/610jSM3i3pL._CR0,0,500,500_UX128.jpg",
   "http://66.media.tumblr.com/avatar_131fd597e59c_128.png",
-  "https://65.media.tumblr.com/avatar_56a6db45f1d9_128.png",
-  "https://pp.vk.me/c323521/v323521402/6d83/B74S93ZEjpE.jpg"
+  "https://images-na.ssl-images-amazon.com/images/I/61QXmghBvkL._CR0,0,500,500_UX128.jpg",
+  "https://pp.vk.me/c323521/v323521402/6d83/B74S93ZEjpE.jpg",
+  "https://pbs.twimg.com/profile_images/623440110936195072/jAmmawtp_reasonably_small.png"
 ]
 
 puts "Destroying previous seeds"
